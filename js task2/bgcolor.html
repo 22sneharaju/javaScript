@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>bgcolor with count</title>
+    <style>
+      button {
+        margin: 0 auto;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <button onClick="changeBackground()">Click me!</button>
+    <div id="count"></div>
+    <script>
+      let colors = [
+        "Red",
+        "Green",
+        "Blue",
+        "Yellow",
+        "Orange",
+        "Violet",
+        "Indigo",
+        "Purple",
+        "Pink",
+        "Brown",
+      ];
+      let count = {};
+      function changeBackground() {
+        let colorIndex = Math.floor(Math.random() * colors.length);
+        let randomColor = colors[colorIndex];
+        if (count[randomColor] === undefined) {
+          count[randomColor] = 1;
+        } else {
+          count[randomColor]++;
+        }
+        document.body.style.background = randomColor;
+        document.getElementById("count").innerHTML =
+          "Color count: " + JSON.stringify(count);
+      }
+    </script>
+  </body>
+</html>
